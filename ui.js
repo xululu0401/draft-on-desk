@@ -71,7 +71,7 @@
   function why(o) {
     var P = o.P, m = o.mine, t = [];
     if (o.mineIsBest) t.push('你现在的放手线（' + A.xShort(P.X) + '）已经是最省的。');
-    else t.push('照你现在的放手线（' + A.xShort(P.X) + '），' + P.n + ' 次里有 ' + m.rewrites + ' 次你会自己重写，一共花 ' + Mn(m.total) + '，' + cmp(m.saved) + '（跟自己做比）。');
+    else t.push('照你现在的放手线（' + A.xShort(P.X) + '），' + (m.rewrites ? P.n + ' 次里有 ' + m.rewrites + ' 次你会自己重写' : P.n + ' 次你都只给意见') + '，一共花 ' + Mn(m.total) + '，跟自己做比' + cmp(m.saved) + '。');
     if (m.rewrites > 0 && P.g < 10) t.push('每重写一次他只学到 ' + P.g + ' 成，第 ' + P.n + ' 次后他的初稿还要你改 ' + m.endR + ' 分钟；一次都不重写的话是 ' + o.never.endR + ' 分钟。');
     if (o.winner === 'delegate') t.push(o.best.be === 1 ? '第 1 次就开始省。' : '最省的做法从第 ' + o.best.be + ' 次开始比自己做省，之前多花的是教他、改他的稿。');
     else t.push(o.need ? '换哪种放手线都要做满 ' + o.need + ' 次才开始省。' : '按这些数，做到 200 次交出去也省不下来：他练熟后要你看的时间不比你自己做少多少。');
